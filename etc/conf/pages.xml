@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sites>
+    <site name="sps">
+        <pages>
+            <pageGroup name="fe" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth">
+                <page uri="/">
+                    <actions>SPS.Site.GetIndexPage</actions>
+                    <template>tmpl://fe/index.tmpl.php</template>
+                </page>
+                <page uri="/login/" boot="SPS.Site.GetSiteParams">
+                    <actions>SPS.VK.VKLogoutSilent</actions>
+                    <template>tmpl://fe/login.tmpl.php</template>
+                </page>
+                <page uri="/logout/" boot="SPS.Site.GetSiteParams">
+                    <actions>SPS.VK.VKLogout</actions>
+                    <template>tmpl://fe/login.tmpl.php</template>
+                </page>
+            </pageGroup>
+
+            <pageGroup name="feControls" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth">
+                <page uri="controls://arcticles-list/">
+                    <actions>SPS.Site.GetArticlesListControl</actions>
+                    <template>tmpl://fe/elements/arcticles-list.tmpl.php</template>
+                </page>
+                <page uri="controls://arcticle-item/">
+                    <actions>SPS.Site.GetArticleItemControl</actions>
+                    <template>tmpl://fe/elements/arcticle-item.tmpl.php</template>
+                </page>
+                <page uri="controls://arcticle-delete/">
+                    <actions>SPS.Site.DeleteArticleControl</actions>
+                </page>
+                <page uri="controls://arcticle-clear-text/">
+                    <actions>SPS.Site.ClearArticleTextControl</actions>
+                </page>
+                <page uri="controls://arcticles-queue-list/">
+                    <actions>SPS.Site.GetArticlesQueueListControl</actions>
+                    <template>tmpl://fe/elements/arcticles-queue-list.tmpl.php</template>
+                </page>
+                <page uri="controls://arcticle-queue-delete/">
+                    <actions>SPS.Site.DeleteArticleQueueControl</actions>
+                </page>
+                <page uri="controls://arcticle-add-to-queue/">
+                    <actions>SPS.Site.AddArticleToQueueControl</actions>
+                </page>
+                <page uri="controls://arcticle-save/">
+                    <actions>SPS.Site.SaveArticleControl</actions>
+                </page>
+                <page uri="controls://arcticle-get/">
+                    <actions>SPS.Site.GetArticleControl</actions>
+                </page>
+                <page uri="controls://arcticle-restore/">
+                    <actions>SPS.Site.RestoreArticleControl</actions>
+                </page>
+                <page uri="controls://parse-url/">
+                    <actions>SPS.Site.ParseUrlControl</actions>
+                </page>
+                <page uri="controls://image-upload/" boot="">
+                    <actions>SPS.Site.ImageUploadControl</actions>
+                </page>
+                <page uri="controls://link-info/" boot="">
+                    <actions>SPS.Site.GetLinkInfoControl</actions>
+                </page>
+                <page uri="controls://link-info-upload/">
+                    <actions>SPS.Site.SaveLinkInfoControl</actions>
+                </page>
+                <page uri="controls://source-feeds-list/">
+                    <actions>SPS.Site.GetSourceFeedsListControl</actions>
+                </page>
+            </pageGroup>
+			
+            <pageGroup name="vt" boot="SPS.Common.CheckAuth">
+                <page uri="vt://login" boot="">
+                    <template>tmpl://vt/login.tmpl.php</template>
+                    <actions>SPS.Common.Login</actions>
+                </page>
+                <page uri="vt://">
+                    <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetAuditEventList, SPS.Common.SetAuditMenu</actions>
+                    <template>tmpl://vt/audit/index.tmpl.php</template>
+                </page>
+				
+                <pageGroup name="SPS.Common">
+                    <pageGroup name="siteParam">
+                        <page uri="vt://site-params/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetSiteParamList, SPS.Common.SetSiteParamsMenu</actions>
+                            <template>tmpl://vt/site-params/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://site-params/add">
+                            <actions>SPS.Common.SaveSiteParam</actions>
+                            <template>tmpl://vt/site-params/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://site-params/delete/([0-9]+)">
+                            <actions>SPS.Common.DeleteSiteParam</actions>
+                        </page>
+                        <page uri="vt://site-params/edit/([0-9]+)">
+                            <actions>SPS.Common.SaveSiteParam</actions>
+                            <template>tmpl://vt/site-params/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="metaDetail">
+                        <page uri="vt://meta-details/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetMetaDetailList</actions>
+                            <template>tmpl://vt/meta-details/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://meta-details/add">
+                            <actions>SPS.Common.SaveMetaDetail</actions>
+                            <template>tmpl://vt/meta-details/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://meta-details/delete/([0-9]+)">
+                            <actions>SPS.Common.DeleteMetaDetail</actions>
+                        </page>
+                        <page uri="vt://meta-details/edit/([0-9]+)">
+                            <actions>SPS.Common.SaveMetaDetail</actions>
+                            <template>tmpl://vt/meta-details/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="user">
+                        <page uri="vt://users/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetUserList</actions>
+                            <template>tmpl://vt/users/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://users/add">
+                            <actions>SPS.Common.SaveUser</actions>
+                            <template>tmpl://vt/users/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://users/delete/([0-9]+)">
+                            <actions>SPS.Common.DeleteUser</actions>
+                        </page>
+                        <page uri="vt://users/edit/([0-9]+)">
+                            <actions>SPS.Common.SaveUser</actions>
+                            <template>tmpl://vt/users/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="staticPage">
+                        <page uri="vt://static-pages/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetStaticPageList, SPS.Common.SetStaticPagesMenu</actions>
+                            <template>tmpl://vt/static-pages/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://static-pages/add">
+                            <actions>SPS.Common.SaveStaticPage</actions>
+                            <template>tmpl://vt/static-pages/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://static-pages/delete/([0-9]+)">
+                            <actions>SPS.Common.DeleteStaticPage</actions>
+                        </page>
+                        <page uri="vt://static-pages/edit/([0-9]+)">
+                            <actions>SPS.Common.SaveStaticPage</actions>
+                            <template>tmpl://vt/static-pages/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="navigationType">
+                        <page uri="vt://navigations/types/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetNavigationTypeList</actions>
+                            <template>tmpl://vt/navigations/types/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/types/add">
+                            <actions>SPS.Common.SaveNavigationType</actions>
+                            <template>tmpl://vt/navigations/types/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/types/delete/([0-9]+)">
+                            <actions>SPS.Common.DeleteNavigationType</actions>
+                        </page>
+                        <page uri="vt://navigations/types/edit/([0-9]+)">
+                            <actions>SPS.Common.SaveNavigationType</actions>
+                            <template>tmpl://vt/navigations/types/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="navigation">
+                        <page uri="vt://navigations/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetNavigationList</actions>
+                            <template>tmpl://vt/navigations/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/add">
+                            <actions>SPS.Common.SaveNavigation</actions>
+                            <template>tmpl://vt/navigations/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/delete/([0-9]+)">
+                            <actions>SPS.Common.DeleteNavigation</actions>
+                        </page>
+                        <page uri="vt://navigations/edit/([0-9]+)">
+                            <actions>SPS.Common.SaveNavigation</actions>
+                            <template>tmpl://vt/navigations/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                </pageGroup>
+
+                <pageGroup name="SPS.Articles">
+                    <pageGroup name="sourceFeed">
+                        <page uri="vt://source-feeds/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetSourceFeedList, SPS.Common.SetSourceFeedsMenu</actions>
+                            <template>tmpl://vt/source-feeds/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://source-feeds/add">
+                            <actions>SPS.Articles.SaveSourceFeed</actions>
+                            <template>tmpl://vt/source-feeds/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://source-feeds/delete/([0-9]+)">
+                            <actions>SPS.Articles.DeleteSourceFeed</actions>
+                        </page>
+                        <page uri="vt://source-feeds/edit/([0-9]+)">
+                            <actions>SPS.Articles.SaveSourceFeed</actions>
+                            <template>tmpl://vt/source-feeds/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="targetFeed">
+                        <page uri="vt://target-feeds/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetTargetFeedList, SPS.Common.SetTargetFeedsMenu</actions>
+                            <template>tmpl://vt/target-feeds/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://target-feeds/add">
+                            <actions>SPS.Articles.SaveTargetFeed</actions>
+                            <template>tmpl://vt/target-feeds/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://target-feeds/delete/([0-9]+)">
+                            <actions>SPS.Articles.DeleteTargetFeed</actions>
+                        </page>
+                        <page uri="vt://target-feeds/edit/([0-9]+)">
+                            <actions>SPS.Articles.SaveTargetFeed</actions>
+                            <template>tmpl://vt/target-feeds/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="article">
+                        <page uri="vt://articles/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetArticleList, SPS.Common.SetArticlesMenu</actions>
+                            <template>tmpl://vt/articles/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://articles/add">
+                            <actions>SPS.Articles.SaveArticle</actions>
+                            <template>tmpl://vt/articles/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://articles/delete/([0-9]+)">
+                            <actions>SPS.Articles.DeleteArticle</actions>
+                        </page>
+                        <page uri="vt://articles/edit/([0-9]+)">
+                            <actions>SPS.Articles.SaveArticle</actions>
+                            <template>tmpl://vt/articles/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="articleQueue">
+                        <page uri="vt://article-queues/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetArticleQueueList, SPS.Common.SetArticleQueueMenu</actions>
+                            <template>tmpl://vt/article-queues/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://article-queues/add">
+                            <actions>SPS.Articles.SaveArticleQueue</actions>
+                            <template>tmpl://vt/article-queues/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://article-queues/delete/([0-9]+)">
+                            <actions>SPS.Articles.DeleteArticleQueue</actions>
+                        </page>
+                        <page uri="vt://article-queues/edit/([0-9]+)">
+                            <actions>SPS.Articles.SaveArticleQueue</actions>
+                            <template>tmpl://vt/article-queues/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="publisher">
+                        <page uri="vt://publishers/">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetPublisherList</actions>
+                            <template>tmpl://vt/publishers/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://publishers/add">
+                            <actions>SPS.Articles.SavePublisher</actions>
+                            <template>tmpl://vt/publishers/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://publishers/delete/([0-9]+)">
+                            <actions>SPS.Articles.DeletePublisher</actions>
+                        </page>
+                        <page uri="vt://publishers/edit/([0-9]+)">
+                            <actions>SPS.Articles.SavePublisher</actions>
+                            <template>tmpl://vt/publishers/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                </pageGroup>
+				
+                <pageGroup name="daemonLocks">
+                    <page uri="vt://daemons/">
+                        <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetDaemonLockList</actions>
+                        <template>tmpl://vt/daemons/index.tmpl.php</template>
+                    </page>
+                    <page uri="vt://daemons/list/">
+                        <template>tmpl://vt/daemons/list.tmpl.php</template>
+                    </page>
+                    <page uri="vt://daemons/delete/([0-9]+)">
+                        <actions>SPS.Common.DeleteDaemonLock</actions>
+                    </page>
+                </pageGroup>
+                <pageGroup name="vfs">
+                    <page uri="vt://vfs(/mce|/|/fldr|/sfldr)([0-9]*)">
+                        <actions>Base.VFS.InitBrowseScreen</actions>
+                        <template>tmpl://vt/elements/vfs/browse.tmpl.php</template>
+                    </page>
+                    <page uri="vt://vfs/(file|folder|path|browse)/([0-9]*)">
+                        <actions>Base.VFS.GetBrowseScreen</actions>
+                    </page>
+                    <page uri="vt://vfs/manage/folder/(star|unstar|delete|create|move)/([0-9]*)">
+                        <actions>Base.VFS.DoFolderOperations</actions>
+                    </page>
+                    <page uri="vt://vfs/manage/file/(temp|delete|create)/([0-9]*)">
+                        <actions>Base.VFS.DoFileOperations</actions>
+                    </page>
+                    <page uri="vt://vfs/manage/file/(queue)/([0-9]*)" boot="">
+                        <actions>Base.VFS.DoFileOperations</actions>
+                    </page>
+                    <page uri="vt://vfs/attach">
+                        <template>tmpl://vt/elements/vfs/attach.tmpl.php</template>
+                    </page>
+                </pageGroup>
+            </pageGroup>
+
+            <pageGroup name="daemons" boot="">
+                <page uri="daemons://sync-sources/">
+                    <actions>SPS.Site.SyncSources</actions>
+                </page>
+                <page uri="daemons://process-queue/">
+                    <actions>SPS.Site.ProcessQueue</actions>
+                </page>
+                <page uri="daemons://sync-top/">
+                    <actions>SPS.Site.SyncTop</actions>
+                </page>
+                <page uri="daemons://w-r/">
+                    <actions>SPS.Site.Wr</actions>
+                </page>
+            </pageGroup>
+
+            <page uri="([^?]+)" boot="SPS.Site.GetSiteParams">
+                <actions>SPS.Site.GetForceStaticPage</actions>
+                <template>tmpl://fe/template.tmpl.php</template>
+            </page>
+        </pages>
+    </site>
+</sites>

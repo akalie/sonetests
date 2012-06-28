@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sites>
+    <site name="sps">
+        <pages>
+            <pageGroup name="fe" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                <page uri="/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.GetIndexPage</actions>
+                    <template>tmpl://fe/index.tmpl.php</template>
+                </page>
+                <page uri="/login/" boot="SPS.Site.GetSiteParams" shutdown="">
+                    <actions>SPS.VK.VKLogoutSilent</actions>
+                    <template>tmpl://fe/login.tmpl.php</template>
+                </page>
+                <page uri="/logout/" boot="SPS.Site.GetSiteParams" shutdown="">
+                    <actions>SPS.VK.VKLogout</actions>
+                    <template>tmpl://fe/login.tmpl.php</template>
+                </page>
+            </pageGroup>
+
+            <pageGroup name="feControls" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                <page uri="controls://arcticles-list/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.GetArticlesListControl</actions>
+                    <template>tmpl://fe/elements/arcticles-list.tmpl.php</template>
+                </page>
+                <page uri="controls://arcticle-item/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.GetArticleItemControl</actions>
+                    <template>tmpl://fe/elements/arcticle-item.tmpl.php</template>
+                </page>
+                <page uri="controls://arcticle-delete/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.DeleteArticleControl</actions>
+                </page>
+                <page uri="controls://arcticle-clear-text/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.ClearArticleTextControl</actions>
+                </page>
+                <page uri="controls://arcticles-queue-list/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.GetArticlesQueueListControl</actions>
+                    <template>tmpl://fe/elements/arcticles-queue-list.tmpl.php</template>
+                </page>
+                <page uri="controls://arcticle-queue-delete/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.DeleteArticleQueueControl</actions>
+                </page>
+                <page uri="controls://arcticle-add-to-queue/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.AddArticleToQueueControl</actions>
+                </page>
+                <page uri="controls://arcticle-save/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.SaveArticleControl</actions>
+                </page>
+                <page uri="controls://arcticle-get/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.GetArticleControl</actions>
+                </page>
+                <page uri="controls://arcticle-restore/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.RestoreArticleControl</actions>
+                </page>
+                <page uri="controls://parse-url/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.ParseUrlControl</actions>
+                </page>
+                <page uri="controls://image-upload/" boot="" shutdown="">
+                    <actions>SPS.Site.ImageUploadControl</actions>
+                </page>
+                <page uri="controls://link-info/" boot="" shutdown="">
+                    <actions>SPS.Site.GetLinkInfoControl</actions>
+                </page>
+                <page uri="controls://link-info-upload/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.SaveLinkInfoControl</actions>
+                </page>
+                <page uri="controls://source-feeds-list/" boot="SPS.Site.GetSiteParams, SPS.VK.VKCheckAuth" shutdown="">
+                    <actions>SPS.Site.GetSourceFeedsListControl</actions>
+                </page>
+            </pageGroup>
+			
+            <pageGroup name="vt" boot="SPS.Common.CheckAuth" shutdown="">
+                <page uri="vt://login" boot="" shutdown="">
+                    <template>tmpl://vt/login.tmpl.php</template>
+                    <actions>SPS.Common.Login</actions>
+                </page>
+                <page uri="vt://" boot="SPS.Common.CheckAuth" shutdown="">
+                    <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetAuditEventList, SPS.Common.SetAuditMenu</actions>
+                    <template>tmpl://vt/audit/index.tmpl.php</template>
+                </page>
+				
+                <pageGroup name="SPS.Common" boot="SPS.Common.CheckAuth" shutdown="">
+                    <pageGroup name="siteParam" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://site-params/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetSiteParamList, SPS.Common.SetSiteParamsMenu</actions>
+                            <template>tmpl://vt/site-params/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://site-params/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveSiteParam</actions>
+                            <template>tmpl://vt/site-params/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://site-params/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.DeleteSiteParam</actions>
+                        </page>
+                        <page uri="vt://site-params/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveSiteParam</actions>
+                            <template>tmpl://vt/site-params/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="metaDetail" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://meta-details/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetMetaDetailList</actions>
+                            <template>tmpl://vt/meta-details/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://meta-details/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveMetaDetail</actions>
+                            <template>tmpl://vt/meta-details/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://meta-details/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.DeleteMetaDetail</actions>
+                        </page>
+                        <page uri="vt://meta-details/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveMetaDetail</actions>
+                            <template>tmpl://vt/meta-details/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="user" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://users/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetUserList</actions>
+                            <template>tmpl://vt/users/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://users/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveUser</actions>
+                            <template>tmpl://vt/users/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://users/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.DeleteUser</actions>
+                        </page>
+                        <page uri="vt://users/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveUser</actions>
+                            <template>tmpl://vt/users/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="staticPage" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://static-pages/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetStaticPageList, SPS.Common.SetStaticPagesMenu</actions>
+                            <template>tmpl://vt/static-pages/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://static-pages/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveStaticPage</actions>
+                            <template>tmpl://vt/static-pages/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://static-pages/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.DeleteStaticPage</actions>
+                        </page>
+                        <page uri="vt://static-pages/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveStaticPage</actions>
+                            <template>tmpl://vt/static-pages/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="navigationType" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://navigations/types/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetNavigationTypeList</actions>
+                            <template>tmpl://vt/navigations/types/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/types/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveNavigationType</actions>
+                            <template>tmpl://vt/navigations/types/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/types/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.DeleteNavigationType</actions>
+                        </page>
+                        <page uri="vt://navigations/types/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveNavigationType</actions>
+                            <template>tmpl://vt/navigations/types/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="navigation" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://navigations/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetNavigationList</actions>
+                            <template>tmpl://vt/navigations/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveNavigation</actions>
+                            <template>tmpl://vt/navigations/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://navigations/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.DeleteNavigation</actions>
+                        </page>
+                        <page uri="vt://navigations/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Common.SaveNavigation</actions>
+                            <template>tmpl://vt/navigations/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                </pageGroup>
+
+                <pageGroup name="SPS.Articles" boot="SPS.Common.CheckAuth" shutdown="">
+                    <pageGroup name="sourceFeed" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://source-feeds/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetSourceFeedList, SPS.Common.SetSourceFeedsMenu</actions>
+                            <template>tmpl://vt/source-feeds/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://source-feeds/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveSourceFeed</actions>
+                            <template>tmpl://vt/source-feeds/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://source-feeds/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.DeleteSourceFeed</actions>
+                        </page>
+                        <page uri="vt://source-feeds/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveSourceFeed</actions>
+                            <template>tmpl://vt/source-feeds/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="targetFeed" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://target-feeds/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetTargetFeedList, SPS.Common.SetTargetFeedsMenu</actions>
+                            <template>tmpl://vt/target-feeds/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://target-feeds/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveTargetFeed</actions>
+                            <template>tmpl://vt/target-feeds/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://target-feeds/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.DeleteTargetFeed</actions>
+                        </page>
+                        <page uri="vt://target-feeds/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveTargetFeed</actions>
+                            <template>tmpl://vt/target-feeds/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="article" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://articles/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetArticleList, SPS.Common.SetArticlesMenu</actions>
+                            <template>tmpl://vt/articles/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://articles/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveArticle</actions>
+                            <template>tmpl://vt/articles/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://articles/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.DeleteArticle</actions>
+                        </page>
+                        <page uri="vt://articles/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveArticle</actions>
+                            <template>tmpl://vt/articles/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="articleQueue" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://article-queues/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetArticleQueueList, SPS.Common.SetArticleQueueMenu</actions>
+                            <template>tmpl://vt/article-queues/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://article-queues/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveArticleQueue</actions>
+                            <template>tmpl://vt/article-queues/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://article-queues/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.DeleteArticleQueue</actions>
+                        </page>
+                        <page uri="vt://article-queues/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SaveArticleQueue</actions>
+                            <template>tmpl://vt/article-queues/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                    <pageGroup name="publisher" boot="SPS.Common.CheckAuth" shutdown="">
+                        <page uri="vt://publishers/" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Articles.GetPublisherList</actions>
+                            <template>tmpl://vt/publishers/index.tmpl.php</template>
+                        </page>
+                        <page uri="vt://publishers/add" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SavePublisher</actions>
+                            <template>tmpl://vt/publishers/add.tmpl.php</template>
+                        </page>
+                        <page uri="vt://publishers/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.DeletePublisher</actions>
+                        </page>
+                        <page uri="vt://publishers/edit/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                            <actions>SPS.Articles.SavePublisher</actions>
+                            <template>tmpl://vt/publishers/edit.tmpl.php</template>
+                        </page>
+                    </pageGroup>
+                </pageGroup>
+				
+                <pageGroup name="daemonLocks" boot="SPS.Common.CheckAuth" shutdown="">
+                    <page uri="vt://daemons/" boot="SPS.Common.CheckAuth" shutdown="">
+                        <actions>Eaze.Helpers.ProcessSearchFilter, SPS.Common.GetDaemonLockList</actions>
+                        <template>tmpl://vt/daemons/index.tmpl.php</template>
+                    </page>
+                    <page uri="vt://daemons/list/" boot="SPS.Common.CheckAuth" shutdown="">
+                        <template>tmpl://vt/daemons/list.tmpl.php</template>
+                    </page>
+                    <page uri="vt://daemons/delete/([0-9]+)" boot="SPS.Common.CheckAuth" shutdown="">
+                        <actions>SPS.Common.DeleteDaemonLock</actions>
+                    </page>
+                </pageGroup>
+                <pageGroup name="vfs" boot="SPS.Common.CheckAuth" shutdown="">
+                    <page uri="vt://vfs(/mce|/|/fldr|/sfldr)([0-9]*)" boot="SPS.Common.CheckAuth" shutdown="">
+                        <actions>Base.VFS.InitBrowseScreen</actions>
+                        <template>tmpl://vt/elements/vfs/browse.tmpl.php</template>
+                    </page>
+                    <page uri="vt://vfs/(file|folder|path|browse)/([0-9]*)" boot="SPS.Common.CheckAuth" shutdown="">
+                        <actions>Base.VFS.GetBrowseScreen</actions>
+                    </page>
+                    <page uri="vt://vfs/manage/folder/(star|unstar|delete|create|move)/([0-9]*)" boot="SPS.Common.CheckAuth" shutdown="">
+                        <actions>Base.VFS.DoFolderOperations</actions>
+                    </page>
+                    <page uri="vt://vfs/manage/file/(temp|delete|create)/([0-9]*)" boot="SPS.Common.CheckAuth" shutdown="">
+                        <actions>Base.VFS.DoFileOperations</actions>
+                    </page>
+                    <page uri="vt://vfs/manage/file/(queue)/([0-9]*)" boot="" shutdown="">
+                        <actions>Base.VFS.DoFileOperations</actions>
+                    </page>
+                    <page uri="vt://vfs/attach" boot="SPS.Common.CheckAuth" shutdown="">
+                        <template>tmpl://vt/elements/vfs/attach.tmpl.php</template>
+                    </page>
+                </pageGroup>
+            </pageGroup>
+
+            <pageGroup name="daemons" boot="" shutdown="">
+                <page uri="daemons://sync-sources/" boot="" shutdown="">
+                    <actions>SPS.Site.SyncSources</actions>
+                </page>
+                <page uri="daemons://process-queue/" boot="" shutdown="">
+                    <actions>SPS.Site.ProcessQueue</actions>
+                </page>
+                <page uri="daemons://sync-top/" boot="" shutdown="">
+                    <actions>SPS.Site.SyncTop</actions>
+                </page>
+                <page uri="daemons://w-r/" boot="" shutdown="">
+                    <actions>SPS.Site.Wr</actions>
+                </page>
+            </pageGroup>
+
+            <page uri="([^?]+)" boot="SPS.Site.GetSiteParams" shutdown="">
+                <actions>SPS.Site.GetForceStaticPage</actions>
+                <template>tmpl://fe/template.tmpl.php</template>
+            </page>
+        </pages>
+    </site>
+</sites>

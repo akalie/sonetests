@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<actions>
+    <group name="ajax">
+        <action name="InitBrowseScreen">
+            <path>vfs/InitBrowseScreenAction</path>
+        </action>
+        <action name="GetBrowseScreen">
+            <path>vfs/GetBrowseScreenAction</path>
+        </action>
+        <action name="DoFolderOperations">
+            <path>vfs/DoFolderOperationsAction</path>
+        </action>
+        <action name="DoFileOperations">
+            <path>vfs/DoFileOperationsAction</path>
+            <parameters>
+                <request>
+                    <param name="resizable">false</param>
+                    <param name="settings">
+                        array(
+                            "prefix"  => "original_"
+                            , "keep"  => true
+                            , "modes" => array(
+                                array(
+                                    "prefix"   => "small_"
+                                    , "width"  => 93
+                                    , "height" => 93
+                                    , "scale"  => false
+                                    , "quality"=> 95
+                                ), array(
+                                    "prefix"   => "big_"
+                                    , "width"  => 200
+                                    , "height" => 200
+                                    , "scale"  => false
+                                    , "quality"=> 95
+                                )
+                            )
+                        );
+                    </param>
+                </request>
+            </parameters>
+        </action>
+    </group>
+</actions>

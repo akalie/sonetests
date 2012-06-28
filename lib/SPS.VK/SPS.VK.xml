@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action name="VKLogout">
+        <path>VKLogout</path>
+        <redirects>
+            <redirect name="success" path="/" />
+        </redirects>
+    </action>
+    <action name="VKLogoutSilent">
+        <path>VKLogout</path>
+    </action>
+    <action name="VKCheckAuth">
+        <path>VKCheckAuth</path>
+        <redirects>
+            <redirect name="login" path="/login/" />
+        </redirects>
+    </action>
+</actions>

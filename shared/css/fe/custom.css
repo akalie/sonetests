@@ -1,0 +1,66 @@
+.newpost.collapsed .uploadify {display: none;}
+.newpost.collapsed .uploadifyQueue {display: none;}
+
+.ui-state-highlight {
+    -webkit-box-shadow: inset 0 0 1px 1px #c8b71e;
+    -moz-box-shadow: inset 0 0 1px 1px #c8b71e;
+    box-shadow: inset 0 0 1px 1px #c8b71e;
+}
+
+.link-info-content .link-description-content { overflow: hidden; margin-top: 5px; padding: 10px; background: #fff; border-left: #CCCCCC solid 3px; }
+.link-info-content .link-description-content img { float: left; margin-right: 10px; }
+.link-info-content .link-description-content a { float: none; margin: 0; display: block;}
+.link-info-content .link-description-content p { float: left; }
+.link-info-content .link-description-content a + p { margin-top: 5px; }
+.link-info-content .link-description-content img ~ a,
+.link-info-content .link-description-content img ~ p { width: 450px; }
+.link-info-content .link-status-content { margin: 10px 0 0 0; }
+.link-info-content .link-status-content span { position: relative; }
+.link-info-content .link-description-text { position: relative; width: 70%; }
+/*.link-info-content .link-description-text > a:first-child { font-weight: bold; }*/
+.link-info-content img.ajax-loader {
+    margin: 0 auto;
+    display: block;
+    float: none;
+}
+.link-info-content .link-img {
+    width: 28%;
+    margin-right: 2%;
+    height: 63px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+}
+
+.failed {
+    background: #FFC0C0 !important;
+    opacity: 1;
+}
+
+div.type-selector {
+    float: right;
+    margin-top: 2px;
+}
+
+div.type-selector a {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    display: -moz-inline-box;
+    display: inline-block;
+    margin-left: 3px;
+    padding: 0 7px;
+    text-decoration: none;
+}
+
+div.type-selector a.active,
+div.type-selector a.active:hover {
+    background-color: #53a5e3;
+    color: #fff;
+    text-shadow: 0 1px 1px #4992C9;
+}
+
+div.type-selector a:hover {
+    background-color: #f5f5f5;
+}

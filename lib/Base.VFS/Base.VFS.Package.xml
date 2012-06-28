@@ -1,0 +1,200 @@
+<entities>
+  <entity>
+    <name>VfsFile</name>
+    <package>Base.VFS</package>
+    <table>vfsFiles</table>
+    <view>getVfsFiles</view>
+    <terminalPath>vfs/files</terminalPath>
+    <flags>
+      <flag>CanPages</flag>
+      <flag>CanCache</flag>
+      <flag>WithoutTemplates</flag>
+    </flags>
+    <fields>
+      <int name="fileId" addable="False" key="True">fileId</int>
+      <int name="folder" foreignKey="VfsFolder" nullable="CheckEmpty">folderId</int>
+      <string name="title" max="255" nullable="CheckEmpty">title</string>
+      <string name="path" max="255" nullable="CheckEmpty">path</string>
+      <string name="params">params</string>
+      <bool name="isFavorite">isFavorite</bool>
+      <string name="mimeType" max="255" nullable="CheckEmpty">mimeType</string>
+      <int name="fileSize">fileSize</int>
+      <bool name="fileExists" nullable="No">fileExists</bool>
+      <int name="statusId" nullable="CheckEmpty">statusId</int>
+      <datetime name="createdAt" addable="False" updatable="False" nullable="No">createdAt</datetime>
+    </fields>
+    <search>
+      <int name="page" default="0">page</int>
+      <int name="pageSize" default="25">pageSize</int>
+    </search>
+    <lists />
+    <template>
+      <field name="fileId" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFile.fileId" titleValue="" canShow="False" canEdit="False">
+        <param name="value" value="fileId" />
+        <param name="name" value="fileId" />
+      </field>
+      <field name="folderId" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFile.folderId" titleValue="Папка" canShow="True" canEdit="True">
+        <param name="value" value="folderId" />
+        <param name="name" value="folderId" />
+      </field>
+      <field name="title" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFile.title" titleValue="Название" canShow="True" canEdit="True">
+        <param name="value" value="title" />
+        <param name="name" value="title" />
+      </field>
+      <field name="path" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFile.path" titleValue="Путь" canShow="True" canEdit="True">
+        <param name="value" value="path" />
+        <param name="name" value="path" />
+      </field>
+      <field name="params" templateType="Form" type="HTML_TEXT" titleKey="vt.vfsFile.params" titleValue="Параметры" canShow="True" canEdit="True">
+        <param name="value" value="params" />
+        <param name="name" value="params" />
+      </field>
+      <field name="isFavorite" templateType="Form" type="HTML_CHECKBOX" titleKey="vt.vfsFile.isFavorite" titleValue="В закладках" canShow="True" canEdit="True">
+        <param name="value" value="isFavorite" />
+        <param name="name" value="isFavorite" />
+      </field>
+      <field name="mimeType" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFile.mimeType" titleValue="Тип" canShow="True" canEdit="True">
+        <param name="value" value="mimeType" />
+        <param name="name" value="mimeType" />
+      </field>
+      <field name="fileSize" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFile.fileSize" titleValue="Размер файла" canShow="True" canEdit="True">
+        <param name="value" value="fileSize" />
+        <param name="name" value="fileSize" />
+      </field>
+      <field name="fileExists" templateType="Form" type="HTML_CHECKBOX" titleKey="vt.vfsFile.fileExists" titleValue="Файл существует" canShow="True" canEdit="True">
+        <param name="value" value="fileExists" />
+        <param name="name" value="fileExists" />
+      </field>
+      <field name="statusId" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFile.statusId" titleValue="Статус" canShow="True" canEdit="True">
+        <param name="value" value="statusId" />
+        <param name="name" value="statusId" />
+      </field>
+      <field name="createdAt" templateType="Form" type="HTML_DATETIME" titleKey="vt.vfsFile.createdAt" titleValue="Дата создания" canShow="True" canEdit="True">
+        <param name="value" value="createdAt" />
+        <param name="name" value="createdAt" />
+      </field>
+      <field name="fileId" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.fileId" titleValue="" canShow="False" canEdit="True">
+        <param name="value" value="fileId" />
+        <param name="name" value="fileId" />
+      </field>
+      <field name="folderId" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.folderId" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="folderId" />
+        <param name="name" value="folderId" />
+      </field>
+      <field name="title" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.title" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="title" />
+        <param name="name" value="title" />
+      </field>
+      <field name="path" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.path" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="path" />
+        <param name="name" value="path" />
+      </field>
+      <field name="params" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.params" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="params" />
+        <param name="name" value="params" />
+      </field>
+      <field name="isFavorite" templateType="Search" type="HTML_CHECKBOX" titleKey="vt.vfsFile.isFavorite" titleValue="" canShow="False" canEdit="True">
+        <param name="value" value="isFavorite" />
+        <param name="name" value="isFavorite" />
+      </field>
+      <field name="mimeType" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.mimeType" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="mimeType" />
+        <param name="name" value="mimeType" />
+      </field>
+      <field name="fileSize" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.fileSize" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="fileSize" />
+        <param name="name" value="fileSize" />
+      </field>
+      <field name="fileExists" templateType="Search" type="HTML_CHECKBOX" titleKey="vt.vfsFile.fileExists" titleValue="" canShow="False" canEdit="True">
+        <param name="value" value="fileExists" />
+        <param name="name" value="fileExists" />
+      </field>
+      <field name="statusId" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFile.statusId" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="statusId" />
+        <param name="name" value="statusId" />
+      </field>
+      <field name="createdAt" templateType="Search" type="HTML_DATETIME" titleKey="vt.vfsFile.createdAt" titleValue="" canShow="False" canEdit="True">
+        <param name="value" value="createdAt" />
+        <param name="name" value="createdAt" />
+      </field>
+    </template>
+  </entity>
+  <entity>
+    <name>VfsFolder</name>
+    <package>Base.VFS</package>
+    <table>vfsFolders</table>
+    <view>getVfsFolders</view>
+    <terminalPath>vfs/folders</terminalPath>
+    <flags>
+      <flag>CanCache</flag>
+      <flag>IsTree</flag>
+      <flag>WithoutTemplates</flag>
+    </flags>
+    <fields>
+      <int name="folderId" addable="False" key="True">folderId</int>
+      <int name="parentFolder" foreignKey="VfsFolder">parentFolderId</int>
+      <string name="title" max="255" nullable="CheckEmpty" searchType="SEARCHTYPE_ILIKE">title</string>
+      <bool name="isFavorite">isFavorite</bool>
+      <datetime name="createdAt" addable="False" updatable="False">createdAt</datetime>
+      <int name="statusId" nullable="CheckEmpty">statusId</int>
+    </fields>
+    <search>
+      <int name="folderId" searchType="SEARCHTYPE_ARRAY">_id</int>
+    </search>
+    <lists />
+    <template>
+      <field name="folderId" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFolder.folderId" titleValue="" canShow="False" canEdit="False">
+        <param name="value" value="folderId" />
+        <param name="name" value="folderId" />
+      </field>
+      <field name="parentFolderId" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFolder.parentFolderId" titleValue="Родительский каталог" canShow="True" canEdit="True">
+        <param name="value" value="parentFolderId" />
+        <param name="name" value="parentFolderId" />
+      </field>
+      <field name="title" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFolder.title" titleValue="Название" canShow="True" canEdit="True">
+        <param name="value" value="title" />
+        <param name="name" value="title" />
+      </field>
+      <field name="isFavorite" templateType="Form" type="HTML_CHECKBOX" titleKey="vt.vfsFolder.isFavorite" titleValue="В закладках" canShow="True" canEdit="True">
+        <param name="value" value="isFavorite" />
+        <param name="name" value="isFavorite" />
+      </field>
+      <field name="createdAt" templateType="Form" type="HTML_DATETIME" titleKey="vt.vfsFolder.createdAt" titleValue="Дата создания" canShow="True" canEdit="True">
+        <param name="value" value="createdAt" />
+        <param name="name" value="createdAt" />
+      </field>
+      <field name="statusId" templateType="Form" type="HTML_INPUT" titleKey="vt.vfsFolder.statusId" titleValue="Статус" canShow="True" canEdit="True">
+        <param name="value" value="statusId" />
+        <param name="name" value="statusId" />
+      </field>
+      <field name="folderId" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFolder.folderId" titleValue="" canShow="False" canEdit="True">
+        <param name="value" value="folderId" />
+        <param name="name" value="folderId" />
+      </field>
+      <field name="parentFolderId" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFolder.parentFolderId" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="parentFolderId" />
+        <param name="name" value="parentFolderId" />
+      </field>
+      <field name="title" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFolder.title" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="title" />
+        <param name="name" value="title" />
+      </field>
+      <field name="isFavorite" templateType="Search" type="HTML_CHECKBOX" titleKey="vt.vfsFolder.isFavorite" titleValue="" canShow="False" canEdit="True">
+        <param name="value" value="isFavorite" />
+        <param name="name" value="isFavorite" />
+      </field>
+      <field name="createdAt" templateType="Search" type="HTML_DATETIME" titleKey="vt.vfsFolder.createdAt" titleValue="" canShow="False" canEdit="True">
+        <param name="value" value="createdAt" />
+        <param name="name" value="createdAt" />
+      </field>
+      <field name="statusId" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFolder.statusId" titleValue="" canShow="True" canEdit="True">
+        <param name="value" value="statusId" />
+        <param name="name" value="statusId" />
+      </field>
+      <field name="_id" templateType="Search" type="HTML_INPUT" titleKey="vt.vfsFolder._id" titleValue="_id" canShow="True" canEdit="True">
+        <param name="value" value="_id" />
+        <param name="name" value="_id" />
+      </field>
+    </template>
+  </entity>
+</entities>

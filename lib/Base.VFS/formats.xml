@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<!-- Current Path -->
+	<path>
+		<folder id="" name="" />
+		<folder id="" name="" />
+		<folder id="" name="" />
+	</path>
+	
+	<!-- Folders Array -->
+	<folders>
+		<!-- Folder
+			@id: 		the folder id
+			@name		the folder name
+		-->
+		<folder id="" name="" />
+	</folders>
+	<files>
+		<!-- File
+			@id: 		the file id
+			@name		the file name
+			@path:		the file path
+			@size:		the file size (kbytes)
+			@type:		the mime type
+		-->
+		<file id="" name="" path="" size="" type="" />
+	</files>
+	
+	<!-- Current Page of Files -->
+	<page value="" />
+	<!-- Page Size -->
+	<pageSize value="" />
+	<!-- Page Count -->
+	<pageCount value="" />
+</root>

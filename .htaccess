@@ -1,0 +1,21 @@
+RewriteEngine on
+RewriteRule ^favicon.ico - [L]
+RewriteRule ^crossdomain.xml - [L]
+RewriteRule ^robots.txt - [L]
+RewriteRule ^xd_receiver.htm - [L]
+RewriteRule ^updating.html - [L]
+
+#Updating
+#RewriteCond %{REQUEST_FILENAME}  !^/shared/.*
+#RewriteRule ^(.*)$ /updating.html [R=503,L]
+#Header set Retry-After "3600"
+#ErrorDocument 503 /updating.html
+
+#force domain
+RewriteCond %{HTTP_HOST} ^www.socialboard.ru$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.sps.verumnets.ru$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^sps.verumnets.ru$ [NC]
+RewriteRule ^(.*)$ http://socialboard.ru/$1 [L,R=301]
+
+RewriteRule ^(vt)$ /$1/? [R=301,L]
+RewriteRule .* eaze.php

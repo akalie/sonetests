@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<actions>
+    <group name="sourcefeed">
+        <action name="GetSourceFeedList">
+            <path>source-feeds/GetSourceFeedListAction</path>
+        </action>
+        <action name="SaveSourceFeed">
+            <path>source-feeds/SaveSourceFeedAction</path>
+            <redirects>
+                <redirect name="success" path="vt://source-feeds/"/>
+            </redirects>
+        </action>
+        <action name="DeleteSourceFeed">
+            <path>source-feeds/SaveSourceFeedAction</path>
+            <parameters>
+                <request>
+                    <param name="action">'delete'</param>
+                </request>
+            </parameters>
+        </action>
+    </group>
+    <group name="targetfeed">
+        <action name="GetTargetFeedList">
+            <path>target-feeds/GetTargetFeedListAction</path>
+        </action>
+        <action name="SaveTargetFeed">
+            <path>target-feeds/SaveTargetFeedAction</path>
+            <redirects>
+                <redirect name="success" path="vt://target-feeds/"/>
+            </redirects>
+        </action>
+        <action name="DeleteTargetFeed">
+            <path>target-feeds/SaveTargetFeedAction</path>
+            <parameters>
+                <request>
+                    <param name="action">'delete'</param>
+                </request>
+            </parameters>
+        </action>
+    </group>
+    <group name="article">
+        <action name="GetArticleList">
+            <path>articles/GetArticleListAction</path>
+        </action>
+        <action name="SaveArticle">
+            <path>articles/SaveArticleAction</path>
+            <redirects>
+                <redirect name="success" path="vt://articles/"/>
+            </redirects>
+        </action>
+        <action name="DeleteArticle">
+            <path>articles/SaveArticleAction</path>
+            <parameters>
+                <request>
+                    <param name="action">'delete'</param>
+                </request>
+            </parameters>
+        </action>
+    </group>
+    <group name="articlequeue">
+        <action name="GetArticleQueueList">
+            <path>article-queues/GetArticleQueueListAction</path>
+        </action>
+        <action name="SaveArticleQueue">
+            <path>article-queues/SaveArticleQueueAction</path>
+            <redirects>
+                <redirect name="success" path="vt://article-queues/"/>
+            </redirects>
+        </action>
+        <action name="DeleteArticleQueue">
+            <path>article-queues/SaveArticleQueueAction</path>
+            <parameters>
+                <request>
+                    <param name="action">'delete'</param>
+                </request>
+            </parameters>
+        </action>
+    </group>
+    <group name="publisher">
+        <action name="SavePublisher">
+            <path>publishers/SavePublisherAction</path>
+            <redirects>
+                <redirect name="success" path="vt://publishers/"/>
+            </redirects>
+        </action>
+        <action name="DeletePublisher">
+            <path>publishers/SavePublisherAction</path>
+            <parameters>
+                <request>
+                    <param name="action">'delete'</param>
+                </request>
+            </parameters>
+        </action>
+        <action name="GetPublisherList">
+            <path>publishers/GetPublisherListAction</path>
+        </action>
+    </group>
+</actions>

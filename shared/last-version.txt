@@ -1,0 +1,13 @@
+Path: .
+URL: https://svn.1adw.com/fst/SPS
+Repository Root: https://svn.1adw.com/fst/SPS
+Repository UUID: bff4bcb2-3a6d-e111-ad23-00104b9ce278
+Revision: 110
+Node Kind: directory
+Schedule: normal
+Last Changed Author: shuler
+Last Changed Rev: 110
+Last Changed Date: 2012-04-03 09:40:43 +0400 (Tue, 03 Apr 2012)
+
+?       web/shared/last-version.txt
+M       web/shared/.revision

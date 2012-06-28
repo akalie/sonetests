@@ -1,0 +1,6 @@
+selectByFolderId()
+selectByFileId()
+selectByName()
+
+mode1: vfs://YYYYdd/folderId_fileId.ext
+mode2: vfs://....

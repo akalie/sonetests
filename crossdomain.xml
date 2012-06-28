@@ -1,0 +1,4 @@
+<cross-domain-policy>
+	<allow-access-from domain="*.topface.ru" to-ports="80"/>
+	<allow-access-from domain="*.vkurse.ru" to-ports="80"/>
+</cross-domain-policy>

@@ -1,0 +1,290 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	color: #000;
+	background: #FFF;
+}
+
+a {
+	font-size: 12px;
+	color: #000000;
+}
+a:hover {
+	color: #B2B4BF;
+}
+
+
+#wrap {
+	width: 800px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#content {
+	border: solid 1px #778;
+	border-top: none;
+}
+
+#subMenu {
+	padding: 10px;
+}
+
+#subMenu img {
+	padding: 0px 5px 0 0;
+}
+
+
+#contFooter {
+	padding: 4px 12px 6px 12px;
+	text-align: right;
+}
+#contFooter input {
+	margin-left: 4px;
+	font-family: Verdana, Arial, sans-serif;
+}
+
+/* ---[ Main Menu ] ---------------------------------------------- */
+#mainMenu {
+	margin: 12px 0 0 0;
+	padding: 1px 0;
+	border-bottom: solid 1px #778;
+}
+#mainMenu li {
+	display: inline;
+	margin: 0;
+	list-style: none;
+}
+
+#mainMenu li a {
+	padding: 1px 0.5em;
+	margin-left: 3px;
+	border: 1px solid #778;
+	border-bottom: none;
+	background: #E0DFE3;
+	text-decoration: none;
+}
+#mainMenu li a:link {
+	color: black;
+}
+#mainMenu li a:visited {
+	color: black;
+}
+#mainMenu li a:hover {
+	color: #B2B4BF;
+	background: white;
+}
+#mainMenu li.active a:hover {
+	background: white;
+}
+#mainMenu li.active a {
+	background: white;
+	border-bottom: 1px solid white;
+}
+
+
+/* ---[ div Table ] ---------------------------------------------- */
+#table {
+	margin: 2px;
+	padding: 4px;
+	border: solid 1px #778;
+	background: #F5F5F5;
+}
+#tableHeader {
+	margin: 2px 6px 6px 6px;
+	text-align: right;
+}
+#tableHeader input {
+	position: relative;
+	top: 2px;
+}
+#tableHeader span {
+	margin-left: 50px;
+	word-spacing: 0.5em;
+}
+
+#table table {
+	width: 100%;
+	border-top: solid 1px #CCD;
+	border-left: solid 1px #CCD;
+	background: #FFF;
+}
+#table .first {
+	width: 55%;
+}
+#table .second {
+	width: 20%;
+}
+#table .third {
+	width: 10%;
+}
+#table .fourth {
+	text-align: center;
+	width: 15%;
+}
+#table th,
+#table td {
+
+}
+#table th {
+	text-align: center;
+}
+#table td.third {
+	text-align: right;
+}
+#tableFooter {
+	margin: 6px 0 2px 6px;
+	
+	text-align: right;
+}
+#tableFooter span {
+	margin-left: 50px;
+	word-spacing: 0.5em;
+}
+
+
+#table tr.odd {
+	background: #F5F5F5;
+}
+
+
+
+#table td.first a {
+	padding-left: 20px;
+}
+
+#table .icon_folder {
+	background: url("../../images/vfs/icon_folder.gif")  no-repeat 0px 50%;
+}
+
+#table .icon_file {
+	background: url("../../images/vfs/icon_image.png")  no-repeat 0px 50%;
+}
+
+#table .icon_image {
+	background: url("../../images/vfs/icon_image.gif")  no-repeat 0px 50%;
+}
+
+#table .icon_video {
+	background: url("../../images/vfs/icon_video.gif") no-repeat 0px 50%;
+}
+#table .icon_flash {
+	background: url("../../images/vfs/icon_flash.gif") no-repeat 0px 50%;
+}
+#table td.leftScreen {
+	width : 30%;
+	vertical-align: top;
+}
+#table td.rightScreen {
+	width : 70%;
+	vertical-align: top;
+}
+#table .leftScreen p {
+	vertical-align:  bottom;
+}
+#table .rightScreen p {
+	text-align: right;
+}
+#table .catalogue {
+	border: 0px;
+}
+#table .fileslist {
+	border: 0px;
+}
+
+/* tfb - Table File Browse */
+#table td.tfbFirst {
+	width: 20%;
+}
+#table td.tfbSecond {
+	width: 80%;
+	padding-top: 2px;
+}
+#table td.tfbSecond input {
+	width: 250px;
+}
+#table td.cat_actions {
+	width: 25%;
+	text-align: center;
+}
+
+
+/* ---[ Other ] -------------------------------------------------- */
+form {
+	margin: 0;
+}
+
+a img {
+	border: none;
+}
+
+.icon_up {
+	position: relative;
+	margin-left: 5px;
+}
+.img_icon {
+	position: relative;
+	/*top: 2px;
+	bottom: 4px;*/
+	
+	margin: 0px 0px 0px 0px;
+}
+
+
+/* ---[ IE fixes ]------------------------------------------------ */
+body {
+	font-size: x-small; /* IE5 Win */
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	font-size: 12px;
+}
+html>body {
+	font-size: 12px;
+}
+
+/*---[ Image Layer ]-------------------------------------------------- */
+.imgLayerHidden, .imgLayerNormal {
+    position:absolute;
+    z-index:1;
+    background-color: #FFFFCE;
+    /*border: 1px #000000 solid;*/
+    visibility: hidden;
+}
+
+.imgLayerNormal {
+    visibility: visible;
+}
+
+.pic {
+	float: left;
+	/*padding: 16px 14px 0 0;*/
+}
+.pic div {
+	padding: 5px 6px;
+}
+.picGallery {
+	clear: both;
+	float: left;
+	width: 100%;
+	min-width: 543px;
+	margin: 2em 0;
+}
+.picGallery .pic {
+	margin-right: 18px;
+/*	margin-bottom: 50px;*/
+}
+
+#loader {
+    display: none;
+}
+
+div.hiddenDiv {
+	position: absolute; 
+	top: 1px; 
+	left:1px;
+	height:1px;
+	width:1px;
+	overflow:hidden;
+}

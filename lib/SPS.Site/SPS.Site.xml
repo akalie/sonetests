@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <group name="Pages">
+        <action name="GetMetaDetails" />
+        <action name="GetNavigations" />
+        <action name="GetStaticPage">
+            <path>GetStaticPage</path>
+            <parameters>
+                <request>
+                    <param name="gsp_With404">false</param>
+                </request>
+            </parameters>
+        </action>
+        <action name="GetForceStaticPage">
+            <path>GetStaticPage</path>
+            <parameters>
+                <request>
+                    <param name="gsp_With404">true</param>
+                </request>
+            </parameters>
+        </action>
+        <action name="GetSiteParams">
+            <path>controls/GetSiteParams</path>
+            <parameters>
+                <request>
+                    <param name="gsp_Container">"__params"</param>
+                </request>
+            </parameters>
+        </action>
+    </group>
+
+    <group name="Daemons">
+        <action name="ProcessQueue">
+            <path>daemons/ProcessQueue</path>
+        </action>
+        <action name="SyncSources">
+            <path>daemons/SyncSources</path>
+        </action>
+        <action name="SyncTop">
+            <path>daemons/SyncTop</path>
+        </action>
+	<action name="Wr">
+            <path>daemons/Wr</path>
+        </action>
+    </group>
+
+    <group name="Controls">
+        <action name="ImageUploadControl">
+            <path>controls/ImageUploadControl</path>
+        </action>
+        <action name="ParseUrlControl">
+            <path>controls/ParseUrlControl</path>
+        </action>
+        <action name="GetLinkInfoControl">
+            <path>controls/GetLinkInfoControl</path>
+        </action>
+        <action name="SaveLinkInfoControl">
+            <path>controls/SaveLinkInfoControl</path>
+        </action>
+
+        <group name="Articles">
+            <action name="GetArticlesListControl">
+                <path>controls/GetArticlesListControl</path>
+            </action>
+            <action name="GetArticleItemControl">
+                <path>controls/GetArticleItemControl</path>
+            </action>
+            <action name="DeleteArticleControl">
+                <path>controls/DeleteArticleControl</path>
+            </action>
+            <action name="ClearArticleTextControl">
+                <path>controls/ClearArticleTextControl</path>
+            </action>
+            <action name="GetArticlesQueueListControl">
+                <path>controls/GetArticlesQueueListControl</path>
+            </action>
+            <action name="DeleteArticleQueueControl">
+                <path>controls/DeleteArticleQueueControl</path>
+            </action>
+            <action name="AddArticleToQueueControl">
+                <path>controls/AddArticleToQueueControl</path>
+            </action>
+            <action name="SaveArticleControl">
+                <path>controls/SaveArticleControl</path>
+            </action>
+            <action name="GetArticleControl">
+                <path>controls/GetArticleControl</path>
+            </action>
+            <action name="RestoreArticleControl">
+                <path>controls/RestoreArticleControl</path>
+            </action>
+            <action name="GetSourceFeedsListControl">
+                <path>controls/GetSourceFeedsListControl</path>
+            </action>
+        </group>
+    </group>
+
+	<!-- Put your's frontend actions here -->
+    <group name="Site">
+        <action name="GetIndexPage" />
+    </group>
+</actions>
